@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tech4Life.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1af50ef5b157ccca03116890b7e1042801327cab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d476662115dc32dde8e9b49d6c698c9f9e8a9629")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tech4Life.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tech4Life.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

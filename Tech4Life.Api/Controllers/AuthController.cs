@@ -16,6 +16,12 @@ namespace Tech4Life.Api.Controllers
             _context = context;
         }
 
+        [HttpGet("usuarios")]
+public async Task<ActionResult<IEnumerable<Usuario>>> ListarUsuarios()
+{
+    return await _context.Usuarios.ToListAsync();
+}
+
         [HttpPost("cadastro")]
         public async Task<ActionResult<Usuario>> Cadastrar(Usuario usuario)
         {
