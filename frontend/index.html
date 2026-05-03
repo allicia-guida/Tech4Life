@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech4Life - Clientes</title>
+</head>
+<body>
+
+    <h1>Cadastros de Clientes</h1>
+
+    <input type="text" id="campoBusca" placeholder="Buscar por nome, email ou CPF">
+    <button id="btnBuscar">Buscar</button>
+
+    <br><br>
+
+    <button id="btnAbrirModal">Adicionar Cadastro</button>
+
+    <br><br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Empresa</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaClientes">
+        </tbody>
+    </table>
+
+    <dialog id="modalCliente">
+        <h2 id="tituloModal">Cadastro</h2>
+
+        <input type="hidden" id="clienteId">
+
+        <label>Nome Completo</label><br>
+        <input type="text" id="nomeCompleto"><br><br>
+
+        <label>Email</label><br>
+        <input type="email" id="email"><br><br>
+
+        <label>CPF</label><br>
+        <input type="text" id="cpf"><br><br>
+
+        <label>Data de Nascimento</label><br>
+        <input type="date" id="dataNascimento"><br><br>
+
+        <label>Telefone</label><br>
+        <input type="text" id="telefone"><br><br>
+
+        <label>Empresa</label><br>
+        <input type="text" id="empresa"><br><br>
+
+        <button id="btnSalvar">Salvar</button>
+        <button id="btnFecharModal">Fechar</button>
+    </dialog>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
