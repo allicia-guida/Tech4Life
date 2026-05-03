@@ -53,23 +53,26 @@ O sistema permite que usuários internos realizem autenticação e, após o logi
 ---
 
 ## Estrutura do Projeto
+
+```
 Tech4Life/
 │
 ├── Tech4Life.Api/
-│ ├── Controllers/
-│ ├── Models/
-│ ├── Data/
-│ └── Program.cs
+│   ├── Controllers/
+│   ├── Models/
+│   ├── Data/
+│   └── Program.cs
 │
 ├── frontend/
-│ ├── login.html
-│ ├── cadastro-usuario.html
-│ ├── index.html
-│ └── js/
-│ ├── auth.js
-│ └── script.js
+│   ├── login.html
+│   ├── cadastro-usuario.html
+│   ├── index.html
+│   └── js/
+│       ├── auth.js
+│       └── script.js
 │
 └── README.md
+```
 
 ---
 
