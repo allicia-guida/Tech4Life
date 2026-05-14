@@ -51,7 +51,20 @@ function verificarLogin() {
     }
 }
 
-// protege só a tela principal
+function exibirUsuarioLogado() {
+    const saudacaoUsuario = document.getElementById("saudacaoUsuario");
+    const usuarioSalvo = localStorage.getItem("usuario");
+
+    if (!saudacaoUsuario || !usuarioSalvo) return;
+
+    const usuario = JSON.parse(usuarioSalvo);
+    const nomeUsuario = usuario.nome || usuario.nomeCompleto || usuario.email || "usuário";
+
+    saudacaoUsuario.textContent = `Olá, ${nomeUsuario}!`;
+}
+
+// Protege só a tela principal.
 if (window.location.pathname.includes("index.html")) {
     verificarLogin();
+    exibirUsuarioLogado();
 }

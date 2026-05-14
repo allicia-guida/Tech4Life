@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Clientes - Tech4Life</title>
+    <link rel="icon" type="image/png" href="img/t4l.png">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="clientes-page">
 
-<h1>Cadastros de Clientes</h1>
+<div class="usuario-area">
+    <p id="saudacaoUsuario">Olá!</p>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+</div>
 
-<button onclick="logout()">Logout</button>
+<main class="clientes-container">
+    <h1>Cadastros de Clientes</h1>
 
-<br><br>
+    <div class="busca-area">
+        <input type="text" id="campoBusca" placeholder="Buscar">
+        <button id="btnBuscar"><img src="img/lupa.png" alt="lupa"></button>
+    </div>
 
-<input type="text" id="campoBusca" placeholder="Buscar">
-<button id="btnBuscar">Buscar</button>
+    <div class="tabela-topo">
+        <button id="btnAbrirModal">Adicionar Cadastro</button>
+    </div>
 
-<br><br>
+    <div class="table-wrapper">
+        <table class="clientes-table" id="clientesTable">
+            <thead class="clientes-table-head">
+                <tr class="clientes-table-row clientes-table-row-head">
+                    <th class="clientes-table-header">Nome</th>
+                    <th class="clientes-table-header">Email</th>
+                    <th class="clientes-table-header">CPF</th>
+                    <th class="clientes-table-header">Telefone</th>
+                    <th class="clientes-table-header">Empresa</th>
+                    <th class="clientes-table-header clientes-table-header-acoes">Ações</th>
+                </tr>
+            </thead>
 
-<button id="btnAbrirModal">Adicionar Cadastro</button>
+            <tbody class="clientes-table-body" id="tabelaClientes"></tbody>
+        </table>
+    </div>
+</main>
 
-<br><br>
+<dialog id="modalCliente" class="cliente-modal">
 
-<table class="clientes-table" id="clientesTable">
-    <thead class="clientes-table-head">
-        <tr class="clientes-table-row clientes-table-row-head">
-            <th class="clientes-table-header">Nome</th>
-            <th class="clientes-table-header">Email</th>
-            <th class="clientes-table-header">CPF</th>
-            <th class="clientes-table-header">Telefone</th>
-            <th class="clientes-table-header">Empresa</th>
-            <th class="clientes-table-header clientes-table-header-acoes">Ações</th>
-        </tr>
-    </thead>
+    <div class="modal-content">
+        <h2 id="tituloModal">Cadastro</h2>
 
-    <tbody class="clientes-table-body" id="tabelaClientes"></tbody>
-</table>
+        <input type="hidden" id="clienteId">
 
-<dialog id="modalCliente">
+        <div class="modal-form">
+            <input type="text" id="nomeCompleto" placeholder="Nome">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="cpf" placeholder="CPF">
+            <input type="date" id="dataNascimento">
+            <input type="text" id="telefone" placeholder="Telefone">
+            <input type="text" id="empresa" placeholder="Empresa">
+        </div>
 
-    <h2 id="tituloModal">Cadastro</h2>
-
-    <input type="hidden" id="clienteId">
-
-    <input type="text" id="nomeCompleto" placeholder="Nome"><br><br>
-    <input type="email" id="email" placeholder="Email"><br><br>
-    <input type="text" id="cpf" placeholder="CPF"><br><br>
-    <input type="date" id="dataNascimento"><br><br>
-    <input type="text" id="telefone" placeholder="Telefone"><br><br>
-    <input type="text" id="empresa" placeholder="Empresa"><br><br>
-
-    <button id="btnSalvar">Salvar</button>
-    <button id="btnFecharModal">Fechar</button>
+        <div class="modal-actions">
+            <button id="btnSalvar">Salvar</button>
+            <button id="btnFecharModal" type="button">Fechar</button>
+        </div>
+    </div>
 
 </dialog>
 

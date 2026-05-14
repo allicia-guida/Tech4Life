@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Cadastro - Tech4Life</title>
+    <link rel="icon" type="image/png" href="img/t4l.png">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="auth-page">
 
-<h2>Cadastro de Usuário</h2>
+<main class="auth-card">
+    <div class="auth-brand">Tech4Life</div>
 
-<input type="text" id="nome" placeholder="Nome"><br><br>
-<input type="email" id="email" placeholder="Email"><br><br>
-<input type="password" id="senha" placeholder="Senha"><br><br>
+    <h2>Cadastro de Usuário</h2>
+    <p class="auth-text">Crie seu acesso para começar a cadastrar e consultar clientes.</p>
 
-<button onclick="cadastrar()">Cadastrar</button>
+    <div class="auth-form">
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="senha" placeholder="Senha">
 
-<br><br>
-<a href="login.html">Voltar para login</a>
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+
+    <p class="auth-link-text">
+        Já tem conta?
+        <a href="login.html">Voltar para login</a>
+    </p>
+</main>
 
 <script src="js/auth.js"></script>
 
