@@ -407,6 +407,10 @@ dialog::backdrop{
     background-color: #5c636a;
 }
 
+[vw].enabled{
+    z-index: 9999;
+}
+
 @media (max-width: 700px){
     .auth-page{
         padding: 20px;
