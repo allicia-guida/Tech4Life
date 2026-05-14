@@ -6,7 +6,17 @@
     <link rel="icon" type="image/png" href="img/t4l.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
 
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 <body class="auth-page">
 
 <main class="auth-card">
@@ -20,7 +30,7 @@
         <input type="email" id="email" placeholder="Email">
         <input type="password" id="senha" placeholder="Senha">
 
-        <button id="btnCadastrarUsuario" type="button">Cadastrar</button>
+        <button onclick="cadastrar()">Cadastrar</button>
     </div>
 
     <p class="auth-link-text">
@@ -30,18 +40,6 @@
 </main>
 
 <script src="js/auth.js"></script>
-
-<div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-    </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget("https://vlibras.gov.br/app");
-</script>
 
 </body>
 </html>
