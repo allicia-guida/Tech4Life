@@ -409,6 +409,12 @@ dialog::backdrop{
 
 [vw].enabled{
     z-index: 9999;
+    pointer-events: none;
+}
+
+[vw].enabled [vw-access-button],
+[vw].enabled [vw-plugin-wrapper]{
+    pointer-events: auto;
 }
 
 @media (max-width: 700px){

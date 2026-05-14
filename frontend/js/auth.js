@@ -63,6 +63,21 @@ function exibirUsuarioLogado() {
     saudacaoUsuario.textContent = `Olá, ${nomeUsuario}!`;
 }
 
+window.login = login;
+window.cadastrar = cadastrar;
+window.logout = logout;
+
+const btnLogin = document.getElementById("btnLogin");
+const btnCadastrarUsuario = document.getElementById("btnCadastrarUsuario");
+
+if (btnLogin) {
+    btnLogin.addEventListener("click", login);
+}
+
+if (btnCadastrarUsuario) {
+    btnCadastrarUsuario.addEventListener("click", cadastrar);
+}
+
 // Protege só a tela principal.
 if (window.location.pathname.includes("index.html")) {
     verificarLogin();
