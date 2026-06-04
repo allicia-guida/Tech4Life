@@ -65,7 +65,20 @@ namespace Tech4Life.Api.Controllers
             if (id != cliente.Id)
                 return BadRequest();
 
-            _context.Entry(cliente).State = EntityState.Modified;
+            var clienteExistente = await _context.Clientes.FindAsync(id);
+
+            if (clienteExistente == null)
+                return NotFound();
+
+            clienteExistente.NomeCompleto = cliente.NomeCompleto;
+            clienteExistente.Email = cliente.Email;
+            clienteExistente.CPF = cliente.CPF;
+            clienteExistente.DataNascimento = cliente.DataNascimento;
+            clienteExistente.Telefone = cliente.Telefone;
+            clienteExistente.Empresa = cliente.Empresa;
+            clienteExistente.Cidade = cliente.Cidade;
+            clienteExistente.Estado = cliente.Estado;
+
             await _context.SaveChangesAsync();
 
             return NoContent();

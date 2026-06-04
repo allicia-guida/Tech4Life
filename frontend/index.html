@@ -2,69 +2,188 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Clientes - Tech4Life</title>
+    <title>Painel - Tech4Life</title>
     <link rel="icon" type="image/png" href="img/t4l.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="clientes-page">
+<body class="app-page">
 
-<div class="usuario-area">
-    <p id="saudacaoUsuario">Olá!</p>
-    <button class="btn-logout" onclick="logout()">Logout</button>
+<aside class="sidebar">
+    <div>
+        <div class="sidebar-brand">Tech4Life</div>
+        <nav class="sidebar-menu">
+            <button class="menu-item active" data-section="dashboard">Relatorio</button>
+            <button class="menu-item" data-section="clientes">Cadastro de Clientes</button>
+            <button class="menu-item" data-section="empresas">Cadastro de Empresas</button>
+            <button class="menu-item admin-only" data-section="usuarios">Cadastro de Usuarios</button>
+        </nav>
+    </div>
+
+    <div class="usuario-area sidebar-user">
+        <p id="saudacaoUsuario">Ola!</p>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+</aside>
+
+<div class="app-shell">
+    <header class="topbar">
+        <div>
+            <p class="topbar-label">Sistema Tech4Life</p>
+            <h1 id="tituloPagina">Relatorio</h1>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <section id="dashboard" class="app-section active">
+            <div class="metric-grid">
+                <article class="metric-card">
+                    <span>Empresas cadastradas</span>
+                    <strong id="totalEmpresas">0</strong>
+                </article>
+                <article class="metric-card">
+                    <span>Clientes cadastrados</span>
+                    <strong id="totalClientes">0</strong>
+                </article>
+            </div>
+        </section>
+
+        <section id="clientes" class="app-section">
+            <div class="section-toolbar">
+                <div class="busca-area">
+                    <input type="text" id="campoBusca" placeholder="Buscar cliente">
+                    <button id="btnBuscar"><img src="img/lupa.png" alt="Buscar"></button>
+                </div>
+                <button id="btnAbrirModal">Adicionar Cliente</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="clientes-table" id="clientesTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>Empresa</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaClientes"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="empresas" class="app-section">
+            <div class="section-toolbar">
+                <div class="busca-area">
+                    <input type="text" id="campoBuscaEmpresa" placeholder="Buscar empresa">
+                    <button id="btnBuscarEmpresa"><img src="img/lupa.png" alt="Buscar"></button>
+                </div>
+                <button id="btnAbrirModalEmpresa">Adicionar Empresa</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="clientes-table">
+                    <thead>
+                        <tr>
+                            <th>Razao Social</th>
+                            <th>Nome Fantasia</th>
+                            <th>CNPJ</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Data Cadastro</th>
+                            <th>Acoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaEmpresas"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="usuarios" class="app-section admin-only">
+            <div class="section-toolbar">
+                <p class="section-text">Apenas administradores podem criar novos usuarios.</p>
+                <button id="btnAbrirModalUsuario">Adicionar Usuario</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="clientes-table usuarios-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Nivel</th>
+                            <th>Data Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaUsuarios"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 </div>
 
-<main class="clientes-container">
-    <h1>Cadastros de Clientes</h1>
-
-    <div class="busca-area">
-        <input type="text" id="campoBusca" placeholder="Buscar">
-        <button id="btnBuscar"><img src="img/lupa.png" alt="lupa"></button>
-    </div>
-
-    <div class="tabela-topo">
-        <button id="btnAbrirModal">Adicionar Cadastro</button>
-    </div>
-
-    <div class="table-wrapper">
-        <table class="clientes-table" id="clientesTable">
-            <thead class="clientes-table-head">
-                <tr class="clientes-table-row clientes-table-row-head">
-                    <th class="clientes-table-header">Nome</th>
-                    <th class="clientes-table-header">Email</th>
-                    <th class="clientes-table-header">CPF</th>
-                    <th class="clientes-table-header">Telefone</th>
-                    <th class="clientes-table-header">Empresa</th>
-                    <th class="clientes-table-header clientes-table-header-acoes">Ações</th>
-                </tr>
-            </thead>
-
-            <tbody class="clientes-table-body" id="tabelaClientes"></tbody>
-        </table>
-    </div>
-</main>
-
 <dialog id="modalCliente" class="cliente-modal">
-
     <div class="modal-content">
-        <h2 id="tituloModal">Cadastro</h2>
-
+        <h2 id="tituloModal">Cadastro de Cliente</h2>
         <input type="hidden" id="clienteId">
-
         <div class="modal-form">
             <input type="text" id="nomeCompleto" placeholder="Nome">
-            <input type="email" id="email" placeholder="Email">
+            <input type="email" id="emailCliente" placeholder="Email">
             <input type="text" id="cpf" placeholder="CPF">
             <input type="date" id="dataNascimento">
             <input type="text" id="telefone" placeholder="Telefone">
             <input type="text" id="empresa" placeholder="Empresa">
+            <input type="text" id="cidadeCliente" placeholder="Cidade">
+            <input type="text" id="estadoCliente" placeholder="Estado">
         </div>
-
         <div class="modal-actions">
             <button id="btnSalvar">Salvar</button>
             <button id="btnFecharModal" type="button">Fechar</button>
         </div>
     </div>
+</dialog>
 
+<dialog id="modalEmpresa" class="cliente-modal">
+    <div class="modal-content">
+        <h2 id="tituloModalEmpresa">Cadastro de Empresa</h2>
+        <input type="hidden" id="empresaId">
+        <div class="modal-form">
+            <input type="text" id="razaoSocial" placeholder="Razao Social">
+            <input type="text" id="nomeFantasia" placeholder="Nome Fantasia">
+            <input type="text" id="cnpj" placeholder="CNPJ">
+            <input type="text" id="telefoneEmpresa" placeholder="Telefone">
+            <input type="text" id="cidadeEmpresa" placeholder="Cidade">
+            <input type="text" id="estadoEmpresa" placeholder="Estado">
+        </div>
+        <div class="modal-actions">
+            <button id="btnSalvarEmpresa">Salvar</button>
+            <button id="btnFecharModalEmpresa" type="button">Fechar</button>
+        </div>
+    </div>
+</dialog>
+
+<dialog id="modalUsuario" class="cliente-modal">
+    <div class="modal-content">
+        <h2 id="tituloModalUsuario">Cadastro de Usuario</h2>
+        <input type="hidden" id="usuarioId">
+        <div class="modal-form">
+            <input type="text" id="nomeUsuario" placeholder="Nome">
+            <input type="email" id="emailUsuario" placeholder="Email">
+            <input type="password" id="senhaUsuario" placeholder="Senha">
+            <select id="nivelUsuario">
+                <option value="operacional">Operacional</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <div class="modal-actions">
+            <button id="btnSalvarUsuario">Salvar</button>
+            <button id="btnFecharModalUsuario" type="button">Fechar</button>
+        </div>
+    </div>
 </dialog>
 
 <div vw class="enabled">

@@ -1,14 +1,12 @@
 namespace Tech4Life.Api.Models
 {
-    public class Cliente
+    public class Empresa
     {
         public int Id { get; set; }
-        public string NomeCompleto { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string CPF { get; set; } = string.Empty;
-        public DateTime DataNascimento { get; set; }
+        public string RazaoSocial { get; set; } = string.Empty;
+        public string NomeFantasia { get; set; } = string.Empty;
+        public string CNPJ { get; set; } = string.Empty;
         public string Telefone { get; set; } = string.Empty;
-        public string Empresa { get; set; } = string.Empty;
         public string Cidade { get; set; } = string.Empty;
         public string Estado { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; } = DateTime.Now;
